@@ -1,3 +1,510 @@
-<a href="https://invoice.infinitepay.io/vitor-jacinto-94k/fvXO0280IG">
-  Presentear
-</a>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de Casamento de Vitor & Rayane - 15 de Agosto de 2026 na Chácara Kamayurá, Unaí-MG. Confirme sua presença e veja nossa lista de presentes.">
+    <title>Vitor & Rayane | Nosso Casamento</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos do Site -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Biblioteca QRCodeJS para Pix Dinâmico -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <!-- Player de Música Flutuante -->
+    <div id="music-player" class="music-player">
+        <audio id="bg-music" loop>
+            <source src="assets/audio/background.mp3" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+        <button id="music-toggle" class="music-toggle-btn" aria-label="Tocar/Pausar música">
+            <span class="music-icon"><i class="fas fa-music"></i></span>
+            <span class="music-wave-bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </span>
+        </button>
+    </div>
+
+    <!-- Header / Menu de Navegação Sticky -->
+    <header id="main-header" class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#hero" class="monogram-logo">V&R</a>
+            </div>
+            
+            <button class="mobile-nav-toggle" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav id="primary-navigation" class="nav-menu">
+                <ul>
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#o-casamento">O Casamento</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#presentes">Lista de Presentes</a></li>
+                    <li><a href="#rsvp" class="btn-nav-rsvp">RSVP</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Seção de Capa -->
+    <section id="hero" class="hero-section">
+        <!-- Vídeo ou Imagem de Fundo -->
+        <div class="hero-video-container">
+            <!-- Caso tenha vídeo, renomeie seu vídeo para background.mp4 e salve em assets/video/ -->
+            <video id="hero-video" autoplay muted loop playsinline class="hero-media">
+                <source src="assets/video/background.mp4" type="video/mp4">
+            </video>
+            <!-- Imagem de backup/poster (ou a linda ilustração da árvore do Save the Date) -->
+            <div class="hero-image-fallback hero-media" style="background-image: url('assets/images/arvore.png');"></div>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-monogram" data-animate="fade-in">
+                <!-- Se tiver o arquivo monograma.png na pasta assets/images -->
+                <img src="assets/images/monograma.png" alt="Monograma Vitor e Rayane" class="img-monograma" onerror="this.style.display='none';">
+                <span class="text-monograma">V&R</span>
+            </div>
+            
+            <h1 class="hero-names" data-animate="fade-in-up">Vitor & Rayane</h1>
+            <p class="hero-tagline" data-animate="fade-in-up">Vão se casar ao Pôr do Sol</p>
+            <p class="hero-date" data-animate="fade-in-up">15 . 08 . 2026 • Unaí - MG</p>
+
+            <!-- Contador Regressivo -->
+            <div class="countdown-container" data-animate="fade-in-up">
+                <div class="countdown-item">
+                    <span id="countdown-days" class="countdown-number">00</span>
+                    <span class="countdown-label">Dias</span>
+                </div>
+                <div class="countdown-divider">:</div>
+                <div class="countdown-item">
+                    <span id="countdown-hours" class="countdown-number">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-divider">:</div>
+                <div class="countdown-item">
+                    <span id="countdown-minutes" class="countdown-number">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-divider">:</div>
+                <div class="countdown-item">
+                    <span id="countdown-seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">Seg</span>
+                </div>
+            </div>
+
+            <a href="#o-casamento" class="hero-scroll-btn" aria-label="Rolar para baixo">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção: O Casamento -->
+    <section id="o-casamento" class="section-padding wedding-info-section">
+        <div class="container">
+            <div class="section-title-wrapper" data-animate="fade-in">
+                <span class="subtitle">Os Detalhes do Grande Dia</span>
+                <h2 class="section-title">O Casamento</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <div class="wedding-intro-grid">
+                <div class="wedding-intro-text" data-animate="fade-in-right">
+                    <p class="highlight-text">
+                        Nosso amor floresce sob o céu aberto e em contato com a natureza. Escolhemos celebrar nossa união em um cenário rústico e cheio de vida, selando nossa promessa aos pés de um pé de pequi gigantesco, exatamente ao pôr do sol.
+                    </p>
+                    <p>
+                        A cerimônia e a recepção serão realizadas no mesmo local, na linda <strong>Chácara Kamayurá</strong>. Preparamos um dia inesquecível e cheio de boas energias para compartilhar com as pessoas que mais amamos na vida. Venha celebrar conosco!
+                    </p>
+                </div>
+                <div class="wedding-intro-illustration" data-animate="fade-in-left">
+                    <div class="illustration-card">
+                        <img src="assets/images/arvore.png" alt="Ilustração do Pé de Pequi" class="img-arvore-ilustra" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800';">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cards Informativos -->
+            <div class="info-cards-grid">
+                <!-- Card Local -->
+                <div class="info-card" data-animate="fade-in-up">
+                    <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3>O Local</h3>
+                    <p class="card-subtitle">Chácara Kamayurá</p>
+                    <p class="card-desc">Avenida Moema, Nº 707, Bairro Kamayurá, Unaí - MG</p>
+                    <div class="card-actions">
+                        <a href="https://maps.app.goo.gl/YEPECsunu9Ab7ag59" target="_blank" class="btn btn-secondary"><i class="fa-solid fa-location-arrow"></i> Google Maps</a>
+                        <a href="https://waze.com/ul?ll=-16.3960919,-46.9030115&navigate=yes" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-waze"></i> Waze</a>
+                    </div>
+                </div>
+
+                <!-- Card Horário -->
+                <div class="info-card" data-animate="fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="card-icon"><i class="fa-solid fa-clock"></i></div>
+                    <h3>Horário</h3>
+                    <p class="card-subtitle">15 de Agosto de 2026</p>
+                    <p class="card-desc">A cerimônia iniciará pontualmente às <strong>16:00</strong>. Recomendamos chegar com 30 minutos de antecedência.</p>
+                </div>
+
+                <!-- Card Dicas Úteis -->
+                <div class="info-card" data-animate="fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3>Dicas Úteis</h3>
+                    <p class="card-subtitle">Para Aproveitar Melhor</p>
+                    <p class="card-desc">Como a cerimônia será no gramado e ao ar livre sob o pé de pequi, sugerimos calçados confortáveis (evitando saltos finos). Óculos de sol e agasalho leve também são bem-vindos para a noite!</p>
+                </div>
+            </div>
+
+            <!-- Mapa Integrado (Widget do Google Maps) -->
+            <div class="map-embed-container" data-animate="fade-in-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.565298749357!2d-46.903011500000005!3d-16.396091900000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9357abfe028b3a7f%3A0xa4e2fb40088931ce!2sCh%C3%A1cara%20Recanto%20Estrela%20do%20Kamayur%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1779632608971!5m2!1spt-BR!2sbr" width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Galeria de Fotos -->
+    <section id="galeria" class="section-padding bg-light galeria-section">
+        <div class="container">
+            <div class="section-title-wrapper" data-animate="fade-in">
+                <span class="subtitle">Um Pouco do Nosso Amor</span>
+                <h2 class="section-title">Galeria de Fotos</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <p class="section-desc" data-animate="fade-in">
+                Registros de momentos felizes que marcam a nossa jornada até aqui.
+            </p>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- As imagens serão inseridas ou podem ser editadas diretamente aqui -->
+                <div class="gallery-item" data-animate="fade-in-up">
+                    <a href="assets/images/foto1.jpg" class="gallery-link" onclick="openLightbox(event, 0)">
+                        <img src="assets/images/foto1.jpg" alt="Foto Ensaio 1" class="gallery-img" onerror="this.src='assets/images/arvore.png';">
+                        <div class="gallery-hover">
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-animate="fade-in-up" style="animation-delay: 0.1s;">
+                    <a href="assets/images/foto2.jpg" class="gallery-link" onclick="openLightbox(event, 1)">
+                        <img src="assets/images/foto2.jpg" alt="Foto Ensaio 2" class="gallery-img" onerror="this.src='assets/images/arvore.png';">
+                        <div class="gallery-hover">
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-animate="fade-in-up" style="animation-delay: 0.2s;">
+                    <a href="assets/images/foto3.jpg" class="gallery-link" onclick="openLightbox(event, 2)">
+                        <img src="assets/images/foto3.jpg" alt="Foto Ensaio 3" class="gallery-img" onerror="this.src='assets/images/arvore.png';">
+                        <div class="gallery-hover">
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-animate="fade-in-up" style="animation-delay: 0.3s;">
+                    <a href="assets/images/foto4.jpg" class="gallery-link" onclick="openLightbox(event, 3)">
+                        <img src="assets/images/foto4.jpg" alt="Foto Ensaio 4" class="gallery-img" onerror="this.src='assets/images/arvore.png';">
+                        <div class="gallery-hover">
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-animate="fade-in-up" style="animation-delay: 0.4s;">
+                    <a href="assets/images/foto5.jpg" class="gallery-link" onclick="openLightbox(event, 4)">
+                        <img src="assets/images/foto5.jpg" alt="Foto Ensaio 5" class="gallery-img" onerror="this.src='assets/images/arvore.png';">
+                        <div class="gallery-hover">
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="gallery-item" data-animate="fade-in-up" style="animation-delay: 0.5s;">
+                    <a href="assets/images/foto6.jpg" class="gallery-link" onclick="openLightbox(event, 5)">
+                        <img src="assets/images/foto6.jpg" alt="Foto Ensaio 6" class="gallery-img" onerror="this.src='assets/images/arvore.png';">
+                        <div class="gallery-hover">
+                            <span class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: Lista de Presentes -->
+    <section id="presentes" class="section-padding presentes-section">
+        <div class="container">
+            <div class="section-title-wrapper" data-animate="fade-in">
+                <span class="subtitle">Lista de Casamento Simbólica</span>
+                <h2 class="section-title">Lista de Presentes</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <p class="section-desc" data-animate="fade-in">
+                Nossa casa já está montada e cheia de carinho, por isso nossa lista de presentes é <strong>totalmente simbólica e descontraída</strong>! <br>
+                Você pode nos presentear escolhendo uma das cotas divertidas abaixo via <strong>Pix</strong> ou no <strong>Cartão de Crédito</strong>.
+            </p>
+
+            <div class="gifts-grid">
+                <!-- Cota 1 -->
+                <div class="gift-card" data-animate="fade-in-up">
+                    <div class="gift-image-wrapper">
+                        <div class="gift-emoji"><i class="fa-solid fa-beer-mug-empty"></i></div>
+                    </div>
+                    <div class="gift-info">
+                        <h3>Rodada de Chopp pro Noivo</h3>
+                        <p class="gift-description">Para acalmar os nervos do Vitor minutos antes de subir ao altar.</p>
+                        <span class="gift-value">R$ 50,00</span>
+                        <button class="btn btn-primary btn-gift" onclick="openGiftModal('Rodada de Chopp pro Noivo', 50)">Presentear</button>
+                    </div>
+                </div>
+
+                <!-- Cota 2 -->
+                <div class="gift-card" data-animate="fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="gift-image-wrapper">
+                        <div class="gift-emoji"><i class="fa-solid fa-shrimp"></i></div>
+                    </div>
+                    <div class="gift-info">
+                        <h3>Jantar Romântico na Lua de Mel</h3>
+                        <p class="gift-description">Para que a Rayane não precise cozinhar miojo nos primeiros dias.</p>
+                        <span class="gift-value">R$ 150,00</span>
+                        <button class="btn btn-primary btn-gift" onclick="openGiftModal('Jantar Romântico na Lua de Mel', 150)">Presentear</button>
+                    </div>
+                </div>
+
+                <!-- Cota 3 -->
+                <div class="gift-card" data-animate="fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="gift-image-wrapper">
+                        <div class="gift-emoji"><i class="fa-solid fa-tree"></i></div>
+                    </div>
+                    <div class="gift-info">
+                        <h3>Cota Adubo pro Pé de Pequi</h3>
+                        <p class="gift-description">Uma ajuda simbólica para manter a árvore da nossa cerimônia sempre forte.</p>
+                        <span class="gift-value">R$ 80,00</span>
+                        <button class="btn btn-primary btn-gift" onclick="openGiftModal('Cota Adubo pro Pé de Pequi', 80)">Presentear</button>
+                    </div>
+                </div>
+
+                <!-- Cota 4 -->
+                <div class="gift-card" data-animate="fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="gift-image-wrapper">
+                        <div class="gift-emoji"><i class="fa-solid fa-plane-departure"></i></div>
+                    </div>
+                    <div class="gift-info">
+                        <h3>Cota Combustível da Viagem</h3>
+                        <p class="gift-description">Para ajudar na gasolina e pedágios da nossa viagem dos sonhos.</p>
+                        <span class="gift-value">R$ 200,00</span>
+                        <button class="btn btn-primary btn-gift" onclick="openGiftModal('Cota Combustível da Viagem', 200)">Presentear</button>
+                    </div>
+                </div>
+
+                <!-- Cota 5 -->
+                <div class="gift-card" data-animate="fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="gift-image-wrapper">
+                        <div class="gift-emoji"><i class="fa-solid fa-spa"></i></div>
+                    </div>
+                    <div class="gift-info">
+                        <h3>Spa Relaxante pós Casamento</h3>
+                        <p class="gift-description">Massagem relaxante para tirar as dores nas costas causadas pela organização.</p>
+                        <span class="gift-value">R$ 120,00</span>
+                        <button class="btn btn-primary btn-gift" onclick="openGiftModal('Spa Relaxante pós Casamento', 120)">Presentear</button>
+                    </div>
+                </div>
+
+                <!-- Cota 6 -->
+                <div class="gift-card" data-animate="fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="gift-image-wrapper">
+                        <div class="gift-emoji"><i class="fa-solid fa-heart-pulse"></i></div>
+                    </div>
+                    <div class="gift-info">
+                        <h3>Qualquer Valor (Livre)</h3>
+                        <p class="gift-description">Contribua com a quantia que seu coração mandar para iniciarmos nossa vida juntos.</p>
+                        <span class="gift-value">Valor Livre</span>
+                        <button class="btn btn-primary btn-gift" onclick="openGiftModal('Cota Valor Livre', 0)">Presentear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: RSVP (Confirmação de Presença) -->
+    <section id="rsvp" class="section-padding bg-light rsvp-section">
+        <div class="container">
+            <div class="section-title-wrapper" data-animate="fade-in">
+                <span class="subtitle">Confirme sua Presença</span>
+                <h2 class="section-title">R.S.V.P</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <p class="section-desc" data-animate="fade-in">
+                É muito importante para nós contar com a sua presença! <br>
+                Por favor, confirme se você e seus acompanhantes irão até o dia <strong>15 de Julho de 2026</strong> (o casamento será realizado em 15 de Agosto).
+            </p>
+
+            <div class="rsvp-form-container" data-animate="fade-in-up">
+                <form id="rsvp-form" class="rsvp-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="rsvp-name">Nome Completo do Convidado</label>
+                            <input type="text" id="rsvp-name" name="name" required placeholder="Digite seu nome completo">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-half">
+                            <label for="rsvp-status">Você irá ao Casamento?</label>
+                            <select id="rsvp-status" name="status" required>
+                                <option value="" disabled selected>Selecione...</option>
+                                <option value="sim">Sim, com certeza!</option>
+                                <option value="nao">Infelizmente não poderei ir</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-half" id="rsvp-guests-wrapper">
+                            <label for="rsvp-guests">Quantidade de Acompanhantes</label>
+                            <input type="number" id="rsvp-guests" name="guests" min="0" max="10" value="0">
+                            <span class="form-help">Não inclua você mesmo na contagem.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row" id="rsvp-names-wrapper">
+                        <div class="form-group">
+                            <label for="rsvp-guest-names">Nome dos Acompanhantes</label>
+                            <textarea id="rsvp-guest-names" name="guest_names" placeholder="Nome completo dos seus acompanhantes (um por linha)"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="rsvp-message">Recadinho Especial para os Noivos (Opcional)</label>
+                            <textarea id="rsvp-message" name="message" placeholder="Deixe uma mensagem carinhosa para nós!"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-action text-center">
+                        <button type="submit" class="btn btn-primary btn-lg"><i class="fa-brands fa-whatsapp"></i> Confirmar via WhatsApp</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="main-footer">
+        <div class="container text-center">
+            <div class="footer-monogram">V&R</div>
+            <p class="footer-names">Vitor & Rayane</p>
+            <p class="footer-date">15 de Agosto de 2026 • Unaí - MG</p>
+            <div class="footer-socials">
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#presentes" aria-label="Lista de presentes"><i class="fa-solid fa-gift"></i></a>
+            </div>
+            <p class="copyright">Feito com carinho para o nosso grande dia. © 2026</p>
+        </div>
+    </footer>
+
+    <!-- MODAL: DETALHES DE PRESENTE (PIX / CARTÃO) -->
+    <div id="gift-modal" class="modal gift-modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeGiftModal()" aria-label="Fechar modal">&times;</button>
+            <h3 id="modal-gift-title">Presentear Cota</h3>
+            <p class="modal-gift-info">Escolha a melhor forma de realizar o presente de <strong id="modal-gift-val-text">R$ 0,00</strong> para a cota <em id="modal-gift-name">"Cota"</em>.</p>
+            
+            <div class="modal-options-tabs">
+                <button class="tab-btn active" onclick="switchGiftTab('pix')"><i class="fa-solid fa-pix"></i> Via Pix (Sem taxas)</button>
+                <button class="tab-btn" onclick="switchGiftTab('card')"><i class="fa-regular fa-credit-card"></i> Cartão de Crédito</button>
+            </div>
+
+            <!-- Tab Pix Content -->
+            <div id="tab-pix" class="tab-content active">
+                <p class="tab-instruction">Escaneie o QR Code Pix abaixo usando o aplicativo do seu banco, ou copie o código Pix "Copia e Cola" abaixo.</p>
+                
+                <div class="qr-code-wrapper">
+                    <!-- Onde o QR Code será renderizado dinamicamente -->
+                    <div id="pix-qrcode" class="qrcode-container"></div>
+                </div>
+
+                <div class="pix-key-copy-box">
+                    <input type="text" id="pix-copia-cola" readonly class="input-readonly">
+                    <button class="btn btn-secondary btn-copy" onclick="copyPixCode()"><i class="fa-solid fa-copy"></i> Copiar Código</button>
+                </div>
+                <div id="copy-toast" class="copy-toast">Código Copiado!</div>
+                
+                <p class="key-fallback-text">Chave Pix CPF: <strong>129.912.786-09</strong><br>Favorecido: <strong>Vitor Jacinto / Rayane</strong></p>
+            </div>
+
+            <!-- Tab Card Content -->
+            <div id="tab-card" class="tab-content">
+                <p class="tab-instruction">Para presentear no cartão de crédito, você será redirecionado para a nossa página de pagamento segura no InfinitePay.</p>
+                <div class="card-redirect-box">
+                    <i class="fa-solid fa-shield-halved shield-icon"></i>
+                    <p class="secure-text">Pagamento seguro processado pela InfinitePay</p>
+                    <a href="https://invoice.infinitepay.io/vitor-jacinto-94k/fvXO0280IG" target="_blank" class="btn btn-primary btn-lg btn-block"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ir para Página de Pagamento</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: MANUAL DOS PADRINHOS / PALETA -->
+    <div id="dresscode-modal" class="modal dresscode-modal-overlay">
+        <div class="modal-content text-center">
+            <button class="modal-close" onclick="closeDressCodeModal()" aria-label="Fechar modal">&times;</button>
+            <h3>Guia de Cores dos Padrinhos</h3>
+            <p>Preparamos uma paleta harmônica com o ambiente natural e a nossa decoração para que todos fiquem em perfeita sintonia!</p>
+            
+            <div class="dresscode-grid">
+                <!-- Madrinhas -->
+                <div class="dresscode-side">
+                    <h4>Madrinhas</h4>
+                    <p class="desc">Vestido longo em tons da paleta <strong>Terracota</strong>.</p>
+                    <div class="color-palette-dots">
+                        <div class="color-dot" style="background-color: #C05A3E;" title="Terracota Claro"></div>
+                        <div class="color-dot" style="background-color: #A04A30;" title="Terracota Médio"></div>
+                        <div class="color-dot" style="background-color: #803A22;" title="Terracota Escuro"></div>
+                    </div>
+                    <p class="help">Sugerimos salto confortável para gramado.</p>
+                </div>
+
+                <!-- Padrinhos -->
+                <div class="dresscode-side">
+                    <h4>Padrinhos</h4>
+                    <p class="desc">Terno preto clássico, camisa branca e sapato social preto.</p>
+                    <div class="color-palette-dots">
+                        <div class="color-dot" style="background-color: #1A1A1A;" title="Terno Preto"></div>
+                        <div class="color-dot" style="background-color: #FFFFFF; border: 1px solid #CCC;" title="Camisa Branca"></div>
+                        <div class="color-dot" style="background-color: #C05A3E;" title="Gravata Terracota (Presenteada pelos Noivos)"></div>
+                    </div>
+                    <p class="help">A gravata terracota será presenteada pelos noivos!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX PARA FOTOS -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-prev" onclick="changeLightboxImage(-1, event)">&#10094;</button>
+        <div class="lightbox-content-wrapper" onclick="event.stopPropagation()">
+            <img id="lightbox-img" class="lightbox-img" src="" alt="Imagem Expandida">
+            <div id="lightbox-caption" class="lightbox-caption">Legenda</div>
+        </div>
+        <button class="lightbox-next" onclick="changeLightboxImage(1, event)">&#10095;</button>
+    </div>
+
+    <!-- Scripts do Site -->
+    <script src="js/app.js"></script>
+</body>
+</html>
